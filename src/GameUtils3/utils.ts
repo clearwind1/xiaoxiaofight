@@ -62,6 +62,10 @@ module GameUtil {
         return /^[\u4e00-\u9fa5]+$/.test(name);
     }
 
+    export function isNumberChineseName(name: string): boolean {
+        return /^[0-9a-zA-Z\u4e00-\u9fa5]+$/.test(name);
+    }
+
     export function removeimag(name: string): string {
         name = name.replace(/^/, '');
         return name;

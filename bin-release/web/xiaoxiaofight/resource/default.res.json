@@ -1,0 +1,159 @@
+{
+	"groups": [
+		{
+			"keys": "loadingbar_png",
+			"name": "preloading"
+		},
+		{
+			"keys": "startgamebg_jpg,startgamebtn_png,topgamebg_png,endBG_png,diamod1_png,diamod2_png,diamod3_png,diamod4_png,diamod5_png,diamod6_png,sdiamod1_png,sdiamod2_png,sdiamod4_png,sdiamod5_png,sdiamod6_png,sdiamod3_png,bomb1_png,bomb2_png,bomb3_png,bomb4_png,bomb5_png,bomb6_png,enemyblood_png,scoreFrame_png,hero-01_png,hero-02_png,hero-03_png",
+			"name": "preload"
+		}
+	],
+	"resources": [
+		{
+			"name": "loadingbar_png",
+			"type": "image",
+			"url": "assets/loadingbar.png"
+		},
+		{
+			"name": "description",
+			"type": "json",
+			"url": "config/description.json"
+		},
+		{
+			"name": "startgamebg_jpg",
+			"type": "image",
+			"url": "assets/startgamebg.jpg"
+		},
+		{
+			"name": "startgamebtn_png",
+			"type": "image",
+			"url": "assets/startgamebtn.png"
+		},
+		{
+			"name": "topgamebg_png",
+			"type": "image",
+			"url": "assets/topgamebg.png"
+		},
+		{
+			"name": "endBG_png",
+			"type": "image",
+			"url": "assets/endBG.png"
+		},
+		{
+			"name": "diamod1_png",
+			"type": "image",
+			"url": "assets/diamond/diamod1.png"
+		},
+		{
+			"name": "diamod2_png",
+			"type": "image",
+			"url": "assets/diamond/diamod2.png"
+		},
+		{
+			"name": "diamod3_png",
+			"type": "image",
+			"url": "assets/diamond/diamod3.png"
+		},
+		{
+			"name": "diamod4_png",
+			"type": "image",
+			"url": "assets/diamond/diamod4.png"
+		},
+		{
+			"name": "diamod5_png",
+			"type": "image",
+			"url": "assets/diamond/diamod5.png"
+		},
+		{
+			"name": "diamod6_png",
+			"type": "image",
+			"url": "assets/diamond/diamod6.png"
+		},
+		{
+			"name": "sdiamod1_png",
+			"type": "image",
+			"url": "assets/diamond/sdiamod1.png"
+		},
+		{
+			"name": "sdiamod2_png",
+			"type": "image",
+			"url": "assets/diamond/sdiamod2.png"
+		},
+		{
+			"name": "sdiamod4_png",
+			"type": "image",
+			"url": "assets/diamond/sdiamod4.png"
+		},
+		{
+			"name": "sdiamod5_png",
+			"type": "image",
+			"url": "assets/diamond/sdiamod5.png"
+		},
+		{
+			"name": "sdiamod6_png",
+			"type": "image",
+			"url": "assets/diamond/sdiamod6.png"
+		},
+		{
+			"name": "sdiamod3_png",
+			"type": "image",
+			"url": "assets/diamond/sdiamod3.png"
+		},
+		{
+			"name": "bomb1_png",
+			"type": "image",
+			"url": "assets/bomb/bomb1.png"
+		},
+		{
+			"name": "bomb2_png",
+			"type": "image",
+			"url": "assets/bomb/bomb2.png"
+		},
+		{
+			"name": "bomb3_png",
+			"type": "image",
+			"url": "assets/bomb/bomb3.png"
+		},
+		{
+			"name": "bomb4_png",
+			"type": "image",
+			"url": "assets/bomb/bomb4.png"
+		},
+		{
+			"name": "bomb5_png",
+			"type": "image",
+			"url": "assets/bomb/bomb5.png"
+		},
+		{
+			"name": "bomb6_png",
+			"type": "image",
+			"url": "assets/bomb/bomb6.png"
+		},
+		{
+			"name": "enemyblood_png",
+			"type": "image",
+			"url": "assets/enemyblood.png"
+		},
+		{
+			"name": "scoreFrame_png",
+			"type": "image",
+			"url": "assets/scoreFrame.png"
+		},
+		{
+			"name": "hero-01_png",
+			"type": "image",
+			"url": "assets/hero-01.png"
+		},
+		{
+			"name": "hero-02_png",
+			"type": "image",
+			"url": "assets/hero-02.png"
+		},
+		{
+			"name": "hero-03_png",
+			"type": "image",
+			"url": "assets/hero-03.png"
+		}
+	]
+}

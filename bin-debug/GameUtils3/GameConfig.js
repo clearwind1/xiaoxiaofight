@@ -8,13 +8,17 @@ var __reflect = (this && this.__reflect) || function (p, c, t) {
 /**声音文件枚举 */
 var SoundName;
 (function (SoundName) {
-    SoundName[SoundName["gamebgm"] = 0] = "gamebgm";
-    SoundName[SoundName["startgamebgm"] = 1] = "startgamebgm";
-    SoundName[SoundName["comble"] = 2] = "comble";
-    SoundName[SoundName["remove"] = 3] = "remove";
-    SoundName[SoundName["newcored"] = 4] = "newcored";
-    SoundName[SoundName["clickf"] = 5] = "clickf";
-    SoundName[SoundName["end"] = 6] = "end";
+    SoundName[SoundName["startgamebgm"] = 0] = "startgamebgm";
+    SoundName[SoundName["gamebgm"] = 1] = "gamebgm";
+    SoundName[SoundName["bowatt"] = 2] = "bowatt";
+    SoundName[SoundName["enemyatt"] = 3] = "enemyatt";
+    SoundName[SoundName["spearatt"] = 4] = "spearatt";
+    SoundName[SoundName["die"] = 5] = "die";
+    SoundName[SoundName["fail"] = 6] = "fail";
+    SoundName[SoundName["goal"] = 7] = "goal";
+    SoundName[SoundName["beatt"] = 8] = "beatt";
+    SoundName[SoundName["click"] = 9] = "click";
+    SoundName[SoundName["end"] = 10] = "end";
 })(SoundName || (SoundName = {}));
 ;
 /**场景转换效果，对应：无效果，从左往右，淡入淡出，向两边分开 */
@@ -60,17 +64,15 @@ var GameConfig = (function () {
     /**基本配置 */
     GameConfig.DEBUG = true;
     GameConfig.IP = "api.h5.gamexun.com"; //http连接地址
-    GameConfig.GAMENAME = '方块大冒险'; //游戏在服务器上的名字
+    GameConfig.GAMENAME = '大冒险'; //游戏在服务器上的名字
     GameConfig.SERVERNAME = 'children'; //服务器连接名
     GameConfig.FIRSTGAME = 'firstgame'; //第一次进游戏标示
     GameConfig.GAMESOUND = 'gamesound'; //游戏音效
     GameConfig.GAMEMUSIC = 'gamemusic'; //游戏音乐
     GameConfig.GAMELEVEL = 'gamelevel'; //游戏等级
-    GameConfig.IsLoadSound = false; //是否加载声音
-    GameConfig.SoundName = [
-        'startgamebgm.mp3', 'gamebgm.mp3', 'comble.mp3', 'remove.mp3', 'newcored.mp3', 'clickf.mp3'
-        // 'die.mp3', 'fail.mp3', 'goal.mp3', 'beatt.mp3', 'click.mp3'
-    ];
+    GameConfig.IsLoadSound = true; //是否加载声音
+    GameConfig.SoundName = ['startgamebgm.mp3', 'gamebgm.mp3', 'bowatt.mp3', 'enemyatt.mp3', 'spearatt.mp3',
+        'die.mp3', 'fail.mp3', 'goal.mp3', 'beatt.mp3', 'click.mp3'];
     GameConfig.MoreGameName = [];
     GameConfig.GUIDESTEPNUM = 2; //新手引导总步数
     GameConfig.DesignWidth = 755; //游戏设计尺寸宽
@@ -90,7 +92,14 @@ var GameConfig = (function () {
     GameConfig.BCOL = 10; //行数
     GameConfig.OFFY = 400;
     GameConfig.TOTALLIFE = 3;
+    GameConfig.gHeroTotalBlood = 10;
+    GameConfig.gEnemyTotalBlood = 10;
+    GameConfig.PLAYERLIFE = 10;
+    GameConfig.PLAYERENERGY = 100;
+    GameConfig.PLAYERSPEARPOW = 2; //玩家近身攻击力
+    GameConfig.PLAYERBOWPOW = 1; //玩家远程攻击力
     GameConfig._instance = null;
     return GameConfig;
 }());
 __reflect(GameConfig.prototype, "GameConfig");
+//# sourceMappingURL=GameConfig.js.map

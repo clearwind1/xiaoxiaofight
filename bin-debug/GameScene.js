@@ -30,6 +30,7 @@ var GameScene = (function (_super) {
         this.addtouch();
         this.bindkeyboard();
         this.gameinterval();
+        this.addfightscene();
     };
     /**
      * 初始化数据
@@ -43,12 +44,23 @@ var GameScene = (function (_super) {
      * 显示背景
      */
     GameScene.prototype.showbg = function () {
-        var gamebg = new MyBitmap(RES.getRes('gamebg_png'), 0, 0);
+        var gamebg = new MyBitmap(RES.getRes('endBG_png'), 0, 0);
         gamebg.setanchorOff(0, 0);
         gamebg.width = this.mStageW;
         gamebg.height = this.mStageH;
         this.addChild(gamebg);
-        this.addChild(GameScore._i());
+        var gamebg = new MyBitmap(RES.getRes('topgamebg_png'), 0, 150);
+        gamebg.setanchorOff(0, 0);
+        gamebg.width = this.mStageW;
+        gamebg.height = this.mStageH / 4;
+        this.addChild(gamebg);
+        //this.addChild(GameScore._i());
+    };
+    GameScene.prototype.addfightscene = function () {
+        this.diamondfightscene = new DiamodFightScene();
+        this.addChild(this.diamondfightscene);
+        this.fighterpanel = new FighterPanel();
+        this.addChild(this.fighterpanel);
     };
     /**
      * 游戏定时器
@@ -170,3 +182,4 @@ var GameScene = (function (_super) {
     return GameScene;
 }(GameUtil.BassPanel));
 __reflect(GameScene.prototype, "GameScene");
+//# sourceMappingURL=GameScene.js.map

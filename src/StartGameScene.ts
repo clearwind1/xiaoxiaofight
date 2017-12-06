@@ -7,7 +7,7 @@ class StartGameScene extends GameUtil.BassPanel {
     public constructor() {
         super();
     }
-
+ 
     public init() {
         BGMPlayer._i().play(SoundName.startgamebgm);
         var data: any = {
@@ -42,8 +42,7 @@ class StartGameScene extends GameUtil.BassPanel {
         gametitletext.textColor = 0x75bfea;
         this.addChild(gametitletext);
 
-        this.addChild(new GameMenus(DisType.LeftTRight));
-
+        this.addChild(new GameMenus(RandomUtils.limitInteger(DisType.NULL, DisType.Alpha)));
     }
 
     /**开始游戏 */

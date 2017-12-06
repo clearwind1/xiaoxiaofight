@@ -4,7 +4,7 @@
  */
 
 /**声音文件枚举 */
-enum SoundName { gamebgm, startgamebgm, comble, remove, newcored, clickf, end };
+enum SoundName { startgamebgm, gamebgm, bowatt, enemyatt, spearatt, die, fail, goal, beatt, click, end };
 /**场景转换效果，对应：无效果，从左往右，淡入淡出，向两边分开 */
 enum SceneEffect { NullAction, CrossLeft, TransAlpha, OpenDoor };
 
@@ -12,18 +12,16 @@ class GameConfig {
     /**基本配置 */
     public static DEBUG: boolean = true;
     public static IP: string = "api.h5.gamexun.com";        //http连接地址
-    public static GAMENAME: string = '方块大冒险';           //游戏在服务器上的名字
+    public static GAMENAME: string = '大冒险';           //游戏在服务器上的名字
     public static SERVERNAME: string = 'children';          //服务器连接名
     public static FIRSTGAME: string = 'firstgame';          //第一次进游戏标示
     public static GAMESOUND: string = 'gamesound';          //游戏音效
     public static GAMEMUSIC: string = 'gamemusic';          //游戏音乐
     public static GAMELEVEL: string = 'gamelevel';          //游戏等级
-    public static IsLoadSound: boolean = false;             //是否加载声音
+    public static IsLoadSound: boolean = true;             //是否加载声音
     public static SoundName: string[] =                     //声音文件名
-    [
-        'startgamebgm.mp3', 'gamebgm.mp3', 'comble.mp3', 'remove.mp3', 'newcored.mp3', 'clickf.mp3'
-        // 'die.mp3', 'fail.mp3', 'goal.mp3', 'beatt.mp3', 'click.mp3'
-    ];
+    ['startgamebgm.mp3', 'gamebgm.mp3', 'bowatt.mp3', 'enemyatt.mp3', 'spearatt.mp3',
+        'die.mp3', 'fail.mp3', 'goal.mp3', 'beatt.mp3', 'click.mp3'];
     public static MoreGameName: string[] =                  //更多游戏名称
     [
         //'czlongzrun','lookcarechild','sanguorun','savequyuan','sjlpicka','sjlrecard','bubblefightv02'
@@ -56,6 +54,13 @@ class GameConfig {
     public static BCOL = 10;         //行数
     public static OFFY = 400;
     public static TOTALLIFE = 3;
+
+    public static gHeroTotalBlood = 10;
+    public static gEnemyTotalBlood = 10;
+    public static PLAYERLIFE = 10;
+    public static PLAYERENERGY = 100;
+    public static PLAYERSPEARPOW: number = 2;       //玩家近身攻击力
+    public static PLAYERBOWPOW: number = 1;         //玩家远程攻击力
     /**开发游戏配置结束 */
 
     public constructor() {

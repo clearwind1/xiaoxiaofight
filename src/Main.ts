@@ -36,7 +36,7 @@ class Main extends egret.DisplayObjectContainer {
 
     private onAddToStage(event: egret.Event) {
         document.title = GameConfig.GAMENAME;
-        this.stage.scaleMode = egret.StageScaleMode.SHOW_ALL;
+        this.stage.scaleMode = egret.StageScaleMode.FIXED_NARROW;
         this.stage.setContentSize(GameConfig.DesignWidth, GameConfig.DesignHeight);
         GameUtil.GameScene.init(this.stage);
         //加载资源
@@ -48,7 +48,7 @@ class Main extends egret.DisplayObjectContainer {
      */
     private createGameScene(): void {
         GameUtil.Http.getinstance();
-        GameUtil.GameScene.runscene(new StartGameScene());
+        GameUtil.GameScene.runscene(new StartGameScene(),SceneEffect.TransAlpha);
     }
 
 }

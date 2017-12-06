@@ -13,7 +13,7 @@ class GameMenus extends GameUtil.BassPanel {
 		var posx = this.mStageW / 2;
 		var posy = this.mStageH / 2;
 		//菜单背景色
-		var shap: egret.Shape = GameUtil.createRect(posx, posy, this.mStageW * 2 / 3, this.mStageH / 2.5, 0.8, 0x69c898);
+		var shap: egret.Shape = GameUtil.createRect(posx, posy+30, 400, 450, 0.8, 0x69c898);
 		shap.$setAnchorOffsetX(shap.width / 2);
 		shap.$setAnchorOffsetY(shap.height / 2);
 		this.addChild(shap);
@@ -32,35 +32,10 @@ class GameMenus extends GameUtil.BassPanel {
 			btn.addButtonText(btnname, 30);
 			this.addChild(btn);
 			btn.x = posx;
-			btn.y = 50 + posy + (i - 2) * 100;
+			btn.y = 80 + posy + (i - 2) * 100;
 		}
 
-		do {
-			if (this.showtype == DisType.NULL) {
-				this.y = 0;
-				break;
-			} else if (this.showtype == DisType.TopTDown) {
-				this.y = -this.mStageH;
-				egret.Tween.get(this).to({ y: 0 }, 1500, egret.Ease.bounceOut);
-				break;
-			} else if (this.showtype == DisType.DownTTop) {
-				this.y = this.mStageH;
-				egret.Tween.get(this).to({ y: 0 }, 1500, egret.Ease.bounceOut);
-				break;
-			} else if (this.showtype == DisType.LeftTRight) {
-				this.x = -this.mStageW;
-				egret.Tween.get(this).to({ x: 0 }, 1500, egret.Ease.bounceOut);
-				break;
-			} else if (this.showtype == DisType.RightTLeft) {
-				this.x = this.mStageW;
-				egret.Tween.get(this).to({ x: 0 }, 1500, egret.Ease.bounceOut);
-				break;
-			} else if (this.showtype == DisType.Alpha) {
-				this.alpha = 0;
-				egret.Tween.get(this).to({ alpha: 1 }, 500);
-				break;
-			}
-		} while (false);
+		GameUtil.doAction(this, this.showtype);
 
 	}
 	private startgame() {
@@ -71,7 +46,7 @@ class GameMenus extends GameUtil.BassPanel {
 		var posx = this.mStageW / 2;
 		var posy = this.mStageH / 2;
 		var text = new GameUtil.MyTextField(50, 50, 30, 0, 0.5);
-		text.setText('玩法介绍:');
+		text.setText('\n玩法介绍:\n每个玩家起手两张牌，可以随意补牌（最多补到五张）\n手牌加起来最大是21点，超过则爆掉为0点');
 		text.textColor = 0xcbeaa0;
 		text.width = this.mStageW - 100;
 		this.maskscene.addChild(text);
@@ -81,7 +56,7 @@ class GameMenus extends GameUtil.BassPanel {
 		var posx = this.mStageW / 2;
 		var posy = this.mStageH / 2;
 		var text = new GameUtil.MyTextField(50, 50, 30, 0, 0.5);
-		text.setText('游戏设置:');
+		text.setText('\n游戏设置:\n');
 		text.textColor = 0xcbeaa0;
 		text.width = this.mStageW - 100;
 		this.maskscene.addChild(text);

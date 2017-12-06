@@ -1,32 +1,974 @@
 {
-	"groups":[
-	{
-		"keys":"loadingbar_png",
-		"name":"preloading"
-	},
-	{
-		"keys":"startgamebg_jpg,startgamebtn_png",
-		"name":"preload"
-	}],
-	"resources":[
-	{
-		"name":"loadingbar_png",
-		"type":"image",
-		"url":"assets/loadingbar.png"
-	},
-	{
-		"name":"description",
-		"type":"json",
-		"url":"config/description.json"
-	},
-	{
-		"name":"startgamebg_jpg",
-		"type":"image",
-		"url":"assets/startgamebg.jpg"
-	},
-	{
-		"name":"startgamebtn_png",
-		"type":"image",
-		"url":"assets/startgamebtn.png"
-	}]
+	"groups": [
+		{
+			"keys": "loadingbar_png",
+			"name": "preloading"
+		},
+		{
+			"keys": "startgamebg_jpg,startgamebtn_png,topgamebg_png,endBG_png,diamod1_png,diamod2_png,diamod3_png,diamod4_png,diamod5_png,diamod6_png,sdiamod1_png,sdiamod2_png,sdiamod4_png,sdiamod5_png,sdiamod6_png,sdiamod3_png,bomb1_png,bomb2_png,bomb3_png,bomb4_png,bomb5_png,bomb6_png,enemyblood_png,scoreFrame_png,hero-01_png,hero-02_png,hero-03_png,spearatt1_png,spearatt10_png,spearatt2_png,spearatt3_png,spearatt4_png,spearatt5_png,spearatt6_png,spearatt7_png,spearatt8_png,spearatt9_png,spearrun1_png,spearrun2_png,spearrun3_png,spearrun4_png,spearrun5_png,spearrun6_png,spearrun7_png,spearrun8_png,enemyatt11_png,enemyatt110_png,enemyatt12_png,enemyatt13_png,enemyatt14_png,enemyatt15_png,enemyatt16_png,enemyatt17_png,enemyatt18_png,enemyatt19_png,enemyrun11_png,enemyrun12_png,enemyrun13_png,enemyrun14_png,enemyatt21_png,enemyatt210_png,enemyatt22_png,enemyatt23_png,enemyatt24_png,enemyatt25_png,enemyatt26_png,enemyatt27_png,enemyatt28_png,enemyatt29_png,enemyrun21_png,enemyrun22_png,enemyrun23_png,enemyrun24_png,enemyatt31_png,enemyatt310_png,enemyatt32_png,enemyatt33_png,enemyatt34_png,enemyatt35_png,enemyatt36_png,enemyatt37_png,enemyatt38_png,enemyatt39_png,enemyrun31_png,enemyrun32_png,enemyrun33_png,enemyrun34_png,enemyatt41_png,enemyatt410_png,enemyatt42_png,enemyatt43_png,enemyatt44_png,enemyatt45_png,enemyatt46_png,enemyatt47_png,enemyatt48_png,enemyatt49_png,enemyrun41_png,enemyrun42_png,enemyrun43_png,enemyrun44_png,enemyatt51_png,enemyatt510_png,enemyatt52_png,enemyatt53_png,enemyatt54_png,enemyatt55_png,enemyatt56_png,enemyatt57_png,enemyatt58_png,enemyatt59_png,enemyrun51_png,enemyrun52_png,enemyrun53_png,enemyrun54_png,enemyatt61_png,enemyatt610_png,enemyatt62_png,enemyatt63_png,enemyatt64_png,enemyatt65_png,enemyatt66_png,enemyatt67_png,enemyatt68_png,enemyatt69_png,enemyrun61_png,enemyrun62_png,enemyrun63_png,enemyrun64_png,enemyatt71_png,enemyatt710_png,enemyatt72_png,enemyatt73_png,enemyatt74_png,enemyatt75_png,enemyatt76_png,enemyatt77_png,enemyatt78_png,enemyatt79_png,enemyrun71_png,enemyrun72_png,enemyrun73_png,enemyrun74_png,enemyatt81_png,enemyatt810_png,enemyatt82_png,enemyatt83_png,enemyatt84_png,enemyatt85_png,enemyatt86_png,enemyatt87_png,enemyatt88_png,enemyatt89_png,enemyrun81_png,enemyrun82_png,enemyrun83_png,enemyrun84_png,lifebar_png,lifeframe_png,bowatt1_png,bowatt10_png,bowatt11_png,bowatt2_png,bowatt3_png,bowatt4_png,bowatt5_png,bowatt7_png,bowatt8_png,bowatt9_png,bowrun1_png,bowrun2_png,bowrun3_png,bowrun4_png,bowrun5_png,bowrun6_png,bowrun7_png,bowrun8_png,boweffect_png,energy_png,energyBottle_png",
+			"name": "preload"
+		}
+	],
+	"resources": [
+		{
+			"name": "loadingbar_png",
+			"type": "image",
+			"url": "assets/loadingbar.png"
+		},
+		{
+			"name": "description",
+			"type": "json",
+			"url": "config/description.json"
+		},
+		{
+			"name": "startgamebg_jpg",
+			"type": "image",
+			"url": "assets/startgamebg.jpg"
+		},
+		{
+			"name": "startgamebtn_png",
+			"type": "image",
+			"url": "assets/startgamebtn.png"
+		},
+		{
+			"name": "topgamebg_png",
+			"type": "image",
+			"url": "assets/topgamebg.png"
+		},
+		{
+			"name": "endBG_png",
+			"type": "image",
+			"url": "assets/endBG.png"
+		},
+		{
+			"name": "diamod1_png",
+			"type": "image",
+			"url": "assets/diamond/diamod1.png"
+		},
+		{
+			"name": "diamod2_png",
+			"type": "image",
+			"url": "assets/diamond/diamod2.png"
+		},
+		{
+			"name": "diamod3_png",
+			"type": "image",
+			"url": "assets/diamond/diamod3.png"
+		},
+		{
+			"name": "diamod4_png",
+			"type": "image",
+			"url": "assets/diamond/diamod4.png"
+		},
+		{
+			"name": "diamod5_png",
+			"type": "image",
+			"url": "assets/diamond/diamod5.png"
+		},
+		{
+			"name": "diamod6_png",
+			"type": "image",
+			"url": "assets/diamond/diamod6.png"
+		},
+		{
+			"name": "sdiamod1_png",
+			"type": "image",
+			"url": "assets/diamond/sdiamod1.png"
+		},
+		{
+			"name": "sdiamod2_png",
+			"type": "image",
+			"url": "assets/diamond/sdiamod2.png"
+		},
+		{
+			"name": "sdiamod4_png",
+			"type": "image",
+			"url": "assets/diamond/sdiamod4.png"
+		},
+		{
+			"name": "sdiamod5_png",
+			"type": "image",
+			"url": "assets/diamond/sdiamod5.png"
+		},
+		{
+			"name": "sdiamod6_png",
+			"type": "image",
+			"url": "assets/diamond/sdiamod6.png"
+		},
+		{
+			"name": "sdiamod3_png",
+			"type": "image",
+			"url": "assets/diamond/sdiamod3.png"
+		},
+		{
+			"name": "bomb1_png",
+			"type": "image",
+			"url": "assets/bomb/bomb1.png"
+		},
+		{
+			"name": "bomb2_png",
+			"type": "image",
+			"url": "assets/bomb/bomb2.png"
+		},
+		{
+			"name": "bomb3_png",
+			"type": "image",
+			"url": "assets/bomb/bomb3.png"
+		},
+		{
+			"name": "bomb4_png",
+			"type": "image",
+			"url": "assets/bomb/bomb4.png"
+		},
+		{
+			"name": "bomb5_png",
+			"type": "image",
+			"url": "assets/bomb/bomb5.png"
+		},
+		{
+			"name": "bomb6_png",
+			"type": "image",
+			"url": "assets/bomb/bomb6.png"
+		},
+		{
+			"name": "enemyblood_png",
+			"type": "image",
+			"url": "assets/enemyblood.png"
+		},
+		{
+			"name": "scoreFrame_png",
+			"type": "image",
+			"url": "assets/scoreFrame.png"
+		},
+		{
+			"name": "hero-01_png",
+			"type": "image",
+			"url": "assets/hero-01.png"
+		},
+		{
+			"name": "hero-02_png",
+			"type": "image",
+			"url": "assets/hero-02.png"
+		},
+		{
+			"name": "hero-03_png",
+			"type": "image",
+			"url": "assets/hero-03.png"
+		},
+		{
+			"name": "spearatt1_png",
+			"type": "image",
+			"url": "assets/spearatt/spearatt1.png"
+		},
+		{
+			"name": "spearatt10_png",
+			"type": "image",
+			"url": "assets/spearatt/spearatt10.png"
+		},
+		{
+			"name": "spearatt2_png",
+			"type": "image",
+			"url": "assets/spearatt/spearatt2.png"
+		},
+		{
+			"name": "spearatt3_png",
+			"type": "image",
+			"url": "assets/spearatt/spearatt3.png"
+		},
+		{
+			"name": "spearatt4_png",
+			"type": "image",
+			"url": "assets/spearatt/spearatt4.png"
+		},
+		{
+			"name": "spearatt5_png",
+			"type": "image",
+			"url": "assets/spearatt/spearatt5.png"
+		},
+		{
+			"name": "spearatt6_png",
+			"type": "image",
+			"url": "assets/spearatt/spearatt6.png"
+		},
+		{
+			"name": "spearatt7_png",
+			"type": "image",
+			"url": "assets/spearatt/spearatt7.png"
+		},
+		{
+			"name": "spearatt8_png",
+			"type": "image",
+			"url": "assets/spearatt/spearatt8.png"
+		},
+		{
+			"name": "spearatt9_png",
+			"type": "image",
+			"url": "assets/spearatt/spearatt9.png"
+		},
+		{
+			"name": "spearrun1_png",
+			"type": "image",
+			"url": "assets/spearrun/spearrun1.png"
+		},
+		{
+			"name": "spearrun2_png",
+			"type": "image",
+			"url": "assets/spearrun/spearrun2.png"
+		},
+		{
+			"name": "spearrun3_png",
+			"type": "image",
+			"url": "assets/spearrun/spearrun3.png"
+		},
+		{
+			"name": "spearrun4_png",
+			"type": "image",
+			"url": "assets/spearrun/spearrun4.png"
+		},
+		{
+			"name": "spearrun5_png",
+			"type": "image",
+			"url": "assets/spearrun/spearrun5.png"
+		},
+		{
+			"name": "spearrun6_png",
+			"type": "image",
+			"url": "assets/spearrun/spearrun6.png"
+		},
+		{
+			"name": "spearrun7_png",
+			"type": "image",
+			"url": "assets/spearrun/spearrun7.png"
+		},
+		{
+			"name": "spearrun8_png",
+			"type": "image",
+			"url": "assets/spearrun/spearrun8.png"
+		},
+		{
+			"name": "enemyatt11_png",
+			"type": "image",
+			"url": "assets/enemy/1/1att/enemyatt11.png"
+		},
+		{
+			"name": "enemyatt110_png",
+			"type": "image",
+			"url": "assets/enemy/1/1att/enemyatt110.png"
+		},
+		{
+			"name": "enemyatt12_png",
+			"type": "image",
+			"url": "assets/enemy/1/1att/enemyatt12.png"
+		},
+		{
+			"name": "enemyatt13_png",
+			"type": "image",
+			"url": "assets/enemy/1/1att/enemyatt13.png"
+		},
+		{
+			"name": "enemyatt14_png",
+			"type": "image",
+			"url": "assets/enemy/1/1att/enemyatt14.png"
+		},
+		{
+			"name": "enemyatt15_png",
+			"type": "image",
+			"url": "assets/enemy/1/1att/enemyatt15.png"
+		},
+		{
+			"name": "enemyatt16_png",
+			"type": "image",
+			"url": "assets/enemy/1/1att/enemyatt16.png"
+		},
+		{
+			"name": "enemyatt17_png",
+			"type": "image",
+			"url": "assets/enemy/1/1att/enemyatt17.png"
+		},
+		{
+			"name": "enemyatt18_png",
+			"type": "image",
+			"url": "assets/enemy/1/1att/enemyatt18.png"
+		},
+		{
+			"name": "enemyatt19_png",
+			"type": "image",
+			"url": "assets/enemy/1/1att/enemyatt19.png"
+		},
+		{
+			"name": "enemyrun11_png",
+			"type": "image",
+			"url": "assets/enemy/1/1run/enemyrun11.png"
+		},
+		{
+			"name": "enemyrun12_png",
+			"type": "image",
+			"url": "assets/enemy/1/1run/enemyrun12.png"
+		},
+		{
+			"name": "enemyrun13_png",
+			"type": "image",
+			"url": "assets/enemy/1/1run/enemyrun13.png"
+		},
+		{
+			"name": "enemyrun14_png",
+			"type": "image",
+			"url": "assets/enemy/1/1run/enemyrun14.png"
+		},
+		{
+			"name": "enemyatt21_png",
+			"type": "image",
+			"url": "assets/enemy/2/2att/enemyatt21.png"
+		},
+		{
+			"name": "enemyatt210_png",
+			"type": "image",
+			"url": "assets/enemy/2/2att/enemyatt210.png"
+		},
+		{
+			"name": "enemyatt22_png",
+			"type": "image",
+			"url": "assets/enemy/2/2att/enemyatt22.png"
+		},
+		{
+			"name": "enemyatt23_png",
+			"type": "image",
+			"url": "assets/enemy/2/2att/enemyatt23.png"
+		},
+		{
+			"name": "enemyatt24_png",
+			"type": "image",
+			"url": "assets/enemy/2/2att/enemyatt24.png"
+		},
+		{
+			"name": "enemyatt25_png",
+			"type": "image",
+			"url": "assets/enemy/2/2att/enemyatt25.png"
+		},
+		{
+			"name": "enemyatt26_png",
+			"type": "image",
+			"url": "assets/enemy/2/2att/enemyatt26.png"
+		},
+		{
+			"name": "enemyatt27_png",
+			"type": "image",
+			"url": "assets/enemy/2/2att/enemyatt27.png"
+		},
+		{
+			"name": "enemyatt28_png",
+			"type": "image",
+			"url": "assets/enemy/2/2att/enemyatt28.png"
+		},
+		{
+			"name": "enemyatt29_png",
+			"type": "image",
+			"url": "assets/enemy/2/2att/enemyatt29.png"
+		},
+		{
+			"name": "enemyrun21_png",
+			"type": "image",
+			"url": "assets/enemy/2/2run/enemyrun21.png"
+		},
+		{
+			"name": "enemyrun22_png",
+			"type": "image",
+			"url": "assets/enemy/2/2run/enemyrun22.png"
+		},
+		{
+			"name": "enemyrun23_png",
+			"type": "image",
+			"url": "assets/enemy/2/2run/enemyrun23.png"
+		},
+		{
+			"name": "enemyrun24_png",
+			"type": "image",
+			"url": "assets/enemy/2/2run/enemyrun24.png"
+		},
+		{
+			"name": "enemyatt31_png",
+			"type": "image",
+			"url": "assets/enemy/3/3att/enemyatt31.png"
+		},
+		{
+			"name": "enemyatt310_png",
+			"type": "image",
+			"url": "assets/enemy/3/3att/enemyatt310.png"
+		},
+		{
+			"name": "enemyatt32_png",
+			"type": "image",
+			"url": "assets/enemy/3/3att/enemyatt32.png"
+		},
+		{
+			"name": "enemyatt33_png",
+			"type": "image",
+			"url": "assets/enemy/3/3att/enemyatt33.png"
+		},
+		{
+			"name": "enemyatt34_png",
+			"type": "image",
+			"url": "assets/enemy/3/3att/enemyatt34.png"
+		},
+		{
+			"name": "enemyatt35_png",
+			"type": "image",
+			"url": "assets/enemy/3/3att/enemyatt35.png"
+		},
+		{
+			"name": "enemyatt36_png",
+			"type": "image",
+			"url": "assets/enemy/3/3att/enemyatt36.png"
+		},
+		{
+			"name": "enemyatt37_png",
+			"type": "image",
+			"url": "assets/enemy/3/3att/enemyatt37.png"
+		},
+		{
+			"name": "enemyatt38_png",
+			"type": "image",
+			"url": "assets/enemy/3/3att/enemyatt38.png"
+		},
+		{
+			"name": "enemyatt39_png",
+			"type": "image",
+			"url": "assets/enemy/3/3att/enemyatt39.png"
+		},
+		{
+			"name": "enemyrun31_png",
+			"type": "image",
+			"url": "assets/enemy/3/3run/enemyrun31.png"
+		},
+		{
+			"name": "enemyrun32_png",
+			"type": "image",
+			"url": "assets/enemy/3/3run/enemyrun32.png"
+		},
+		{
+			"name": "enemyrun33_png",
+			"type": "image",
+			"url": "assets/enemy/3/3run/enemyrun33.png"
+		},
+		{
+			"name": "enemyrun34_png",
+			"type": "image",
+			"url": "assets/enemy/3/3run/enemyrun34.png"
+		},
+		{
+			"name": "enemyatt41_png",
+			"type": "image",
+			"url": "assets/enemy/4/4att/enemyatt41.png"
+		},
+		{
+			"name": "enemyatt410_png",
+			"type": "image",
+			"url": "assets/enemy/4/4att/enemyatt410.png"
+		},
+		{
+			"name": "enemyatt42_png",
+			"type": "image",
+			"url": "assets/enemy/4/4att/enemyatt42.png"
+		},
+		{
+			"name": "enemyatt43_png",
+			"type": "image",
+			"url": "assets/enemy/4/4att/enemyatt43.png"
+		},
+		{
+			"name": "enemyatt44_png",
+			"type": "image",
+			"url": "assets/enemy/4/4att/enemyatt44.png"
+		},
+		{
+			"name": "enemyatt45_png",
+			"type": "image",
+			"url": "assets/enemy/4/4att/enemyatt45.png"
+		},
+		{
+			"name": "enemyatt46_png",
+			"type": "image",
+			"url": "assets/enemy/4/4att/enemyatt46.png"
+		},
+		{
+			"name": "enemyatt47_png",
+			"type": "image",
+			"url": "assets/enemy/4/4att/enemyatt47.png"
+		},
+		{
+			"name": "enemyatt48_png",
+			"type": "image",
+			"url": "assets/enemy/4/4att/enemyatt48.png"
+		},
+		{
+			"name": "enemyatt49_png",
+			"type": "image",
+			"url": "assets/enemy/4/4att/enemyatt49.png"
+		},
+		{
+			"name": "enemyrun41_png",
+			"type": "image",
+			"url": "assets/enemy/4/4run/enemyrun41.png"
+		},
+		{
+			"name": "enemyrun42_png",
+			"type": "image",
+			"url": "assets/enemy/4/4run/enemyrun42.png"
+		},
+		{
+			"name": "enemyrun43_png",
+			"type": "image",
+			"url": "assets/enemy/4/4run/enemyrun43.png"
+		},
+		{
+			"name": "enemyrun44_png",
+			"type": "image",
+			"url": "assets/enemy/4/4run/enemyrun44.png"
+		},
+		{
+			"name": "enemyatt51_png",
+			"type": "image",
+			"url": "assets/enemy/5/5att/enemyatt51.png"
+		},
+		{
+			"name": "enemyatt510_png",
+			"type": "image",
+			"url": "assets/enemy/5/5att/enemyatt510.png"
+		},
+		{
+			"name": "enemyatt52_png",
+			"type": "image",
+			"url": "assets/enemy/5/5att/enemyatt52.png"
+		},
+		{
+			"name": "enemyatt53_png",
+			"type": "image",
+			"url": "assets/enemy/5/5att/enemyatt53.png"
+		},
+		{
+			"name": "enemyatt54_png",
+			"type": "image",
+			"url": "assets/enemy/5/5att/enemyatt54.png"
+		},
+		{
+			"name": "enemyatt55_png",
+			"type": "image",
+			"url": "assets/enemy/5/5att/enemyatt55.png"
+		},
+		{
+			"name": "enemyatt56_png",
+			"type": "image",
+			"url": "assets/enemy/5/5att/enemyatt56.png"
+		},
+		{
+			"name": "enemyatt57_png",
+			"type": "image",
+			"url": "assets/enemy/5/5att/enemyatt57.png"
+		},
+		{
+			"name": "enemyatt58_png",
+			"type": "image",
+			"url": "assets/enemy/5/5att/enemyatt58.png"
+		},
+		{
+			"name": "enemyatt59_png",
+			"type": "image",
+			"url": "assets/enemy/5/5att/enemyatt59.png"
+		},
+		{
+			"name": "enemyrun51_png",
+			"type": "image",
+			"url": "assets/enemy/5/5run/enemyrun51.png"
+		},
+		{
+			"name": "enemyrun52_png",
+			"type": "image",
+			"url": "assets/enemy/5/5run/enemyrun52.png"
+		},
+		{
+			"name": "enemyrun53_png",
+			"type": "image",
+			"url": "assets/enemy/5/5run/enemyrun53.png"
+		},
+		{
+			"name": "enemyrun54_png",
+			"type": "image",
+			"url": "assets/enemy/5/5run/enemyrun54.png"
+		},
+		{
+			"name": "enemyatt61_png",
+			"type": "image",
+			"url": "assets/enemy/6/6att/enemyatt61.png"
+		},
+		{
+			"name": "enemyatt610_png",
+			"type": "image",
+			"url": "assets/enemy/6/6att/enemyatt610.png"
+		},
+		{
+			"name": "enemyatt62_png",
+			"type": "image",
+			"url": "assets/enemy/6/6att/enemyatt62.png"
+		},
+		{
+			"name": "enemyatt63_png",
+			"type": "image",
+			"url": "assets/enemy/6/6att/enemyatt63.png"
+		},
+		{
+			"name": "enemyatt64_png",
+			"type": "image",
+			"url": "assets/enemy/6/6att/enemyatt64.png"
+		},
+		{
+			"name": "enemyatt65_png",
+			"type": "image",
+			"url": "assets/enemy/6/6att/enemyatt65.png"
+		},
+		{
+			"name": "enemyatt66_png",
+			"type": "image",
+			"url": "assets/enemy/6/6att/enemyatt66.png"
+		},
+		{
+			"name": "enemyatt67_png",
+			"type": "image",
+			"url": "assets/enemy/6/6att/enemyatt67.png"
+		},
+		{
+			"name": "enemyatt68_png",
+			"type": "image",
+			"url": "assets/enemy/6/6att/enemyatt68.png"
+		},
+		{
+			"name": "enemyatt69_png",
+			"type": "image",
+			"url": "assets/enemy/6/6att/enemyatt69.png"
+		},
+		{
+			"name": "enemyrun61_png",
+			"type": "image",
+			"url": "assets/enemy/6/6run/enemyrun61.png"
+		},
+		{
+			"name": "enemyrun62_png",
+			"type": "image",
+			"url": "assets/enemy/6/6run/enemyrun62.png"
+		},
+		{
+			"name": "enemyrun63_png",
+			"type": "image",
+			"url": "assets/enemy/6/6run/enemyrun63.png"
+		},
+		{
+			"name": "enemyrun64_png",
+			"type": "image",
+			"url": "assets/enemy/6/6run/enemyrun64.png"
+		},
+		{
+			"name": "enemyatt71_png",
+			"type": "image",
+			"url": "assets/enemy/7/7att/enemyatt71.png"
+		},
+		{
+			"name": "enemyatt710_png",
+			"type": "image",
+			"url": "assets/enemy/7/7att/enemyatt710.png"
+		},
+		{
+			"name": "enemyatt72_png",
+			"type": "image",
+			"url": "assets/enemy/7/7att/enemyatt72.png"
+		},
+		{
+			"name": "enemyatt73_png",
+			"type": "image",
+			"url": "assets/enemy/7/7att/enemyatt73.png"
+		},
+		{
+			"name": "enemyatt74_png",
+			"type": "image",
+			"url": "assets/enemy/7/7att/enemyatt74.png"
+		},
+		{
+			"name": "enemyatt75_png",
+			"type": "image",
+			"url": "assets/enemy/7/7att/enemyatt75.png"
+		},
+		{
+			"name": "enemyatt76_png",
+			"type": "image",
+			"url": "assets/enemy/7/7att/enemyatt76.png"
+		},
+		{
+			"name": "enemyatt77_png",
+			"type": "image",
+			"url": "assets/enemy/7/7att/enemyatt77.png"
+		},
+		{
+			"name": "enemyatt78_png",
+			"type": "image",
+			"url": "assets/enemy/7/7att/enemyatt78.png"
+		},
+		{
+			"name": "enemyatt79_png",
+			"type": "image",
+			"url": "assets/enemy/7/7att/enemyatt79.png"
+		},
+		{
+			"name": "enemyrun71_png",
+			"type": "image",
+			"url": "assets/enemy/7/7run/enemyrun71.png"
+		},
+		{
+			"name": "enemyrun72_png",
+			"type": "image",
+			"url": "assets/enemy/7/7run/enemyrun72.png"
+		},
+		{
+			"name": "enemyrun73_png",
+			"type": "image",
+			"url": "assets/enemy/7/7run/enemyrun73.png"
+		},
+		{
+			"name": "enemyrun74_png",
+			"type": "image",
+			"url": "assets/enemy/7/7run/enemyrun74.png"
+		},
+		{
+			"name": "enemyatt81_png",
+			"type": "image",
+			"url": "assets/enemy/8/8att/enemyatt81.png"
+		},
+		{
+			"name": "enemyatt810_png",
+			"type": "image",
+			"url": "assets/enemy/8/8att/enemyatt810.png"
+		},
+		{
+			"name": "enemyatt82_png",
+			"type": "image",
+			"url": "assets/enemy/8/8att/enemyatt82.png"
+		},
+		{
+			"name": "enemyatt83_png",
+			"type": "image",
+			"url": "assets/enemy/8/8att/enemyatt83.png"
+		},
+		{
+			"name": "enemyatt84_png",
+			"type": "image",
+			"url": "assets/enemy/8/8att/enemyatt84.png"
+		},
+		{
+			"name": "enemyatt85_png",
+			"type": "image",
+			"url": "assets/enemy/8/8att/enemyatt85.png"
+		},
+		{
+			"name": "enemyatt86_png",
+			"type": "image",
+			"url": "assets/enemy/8/8att/enemyatt86.png"
+		},
+		{
+			"name": "enemyatt87_png",
+			"type": "image",
+			"url": "assets/enemy/8/8att/enemyatt87.png"
+		},
+		{
+			"name": "enemyatt88_png",
+			"type": "image",
+			"url": "assets/enemy/8/8att/enemyatt88.png"
+		},
+		{
+			"name": "enemyatt89_png",
+			"type": "image",
+			"url": "assets/enemy/8/8att/enemyatt89.png"
+		},
+		{
+			"name": "enemyrun81_png",
+			"type": "image",
+			"url": "assets/enemy/8/8run/enemyrun81.png"
+		},
+		{
+			"name": "enemyrun82_png",
+			"type": "image",
+			"url": "assets/enemy/8/8run/enemyrun82.png"
+		},
+		{
+			"name": "enemyrun83_png",
+			"type": "image",
+			"url": "assets/enemy/8/8run/enemyrun83.png"
+		},
+		{
+			"name": "enemyrun84_png",
+			"type": "image",
+			"url": "assets/enemy/8/8run/enemyrun84.png"
+		},
+		{
+			"name": "beatt_mp3",
+			"type": "sound",
+			"url": "assets/sound/beatt.mp3"
+		},
+		{
+			"name": "bowatt_mp3",
+			"type": "sound",
+			"url": "assets/sound/bowatt.mp3"
+		},
+		{
+			"name": "click_mp3",
+			"type": "sound",
+			"url": "assets/sound/click.mp3"
+		},
+		{
+			"name": "die_mp3",
+			"type": "sound",
+			"url": "assets/sound/die.mp3"
+		},
+		{
+			"name": "enemyatt_mp3",
+			"type": "sound",
+			"url": "assets/sound/enemyatt.mp3"
+		},
+		{
+			"name": "fail_mp3",
+			"type": "sound",
+			"url": "assets/sound/fail.mp3"
+		},
+		{
+			"name": "gamebgm_mp3",
+			"type": "sound",
+			"url": "assets/sound/gamebgm.mp3"
+		},
+		{
+			"name": "goal_mp3",
+			"type": "sound",
+			"url": "assets/sound/goal.mp3"
+		},
+		{
+			"name": "spearatt_mp3",
+			"type": "sound",
+			"url": "assets/sound/spearatt.mp3"
+		},
+		{
+			"name": "startgamebgm_mp3",
+			"type": "sound",
+			"url": "assets/sound/startgamebgm.mp3"
+		},
+		{
+			"name": "lifebar_png",
+			"type": "image",
+			"url": "assets/lifebar.png"
+		},
+		{
+			"name": "lifeframe_png",
+			"type": "image",
+			"url": "assets/lifeframe.png"
+		},
+		{
+			"name": "bowatt1_png",
+			"type": "image",
+			"url": "assets/bowatt/bowatt1.png"
+		},
+		{
+			"name": "bowatt10_png",
+			"type": "image",
+			"url": "assets/bowatt/bowatt10.png"
+		},
+		{
+			"name": "bowatt11_png",
+			"type": "image",
+			"url": "assets/bowatt/bowatt11.png"
+		},
+		{
+			"name": "bowatt2_png",
+			"type": "image",
+			"url": "assets/bowatt/bowatt2.png"
+		},
+		{
+			"name": "bowatt3_png",
+			"type": "image",
+			"url": "assets/bowatt/bowatt3.png"
+		},
+		{
+			"name": "bowatt4_png",
+			"type": "image",
+			"url": "assets/bowatt/bowatt4.png"
+		},
+		{
+			"name": "bowatt5_png",
+			"type": "image",
+			"url": "assets/bowatt/bowatt5.png"
+		},
+		{
+			"name": "bowatt7_png",
+			"type": "image",
+			"url": "assets/bowatt/bowatt7.png"
+		},
+		{
+			"name": "bowatt8_png",
+			"type": "image",
+			"url": "assets/bowatt/bowatt8.png"
+		},
+		{
+			"name": "bowatt9_png",
+			"type": "image",
+			"url": "assets/bowatt/bowatt9.png"
+		},
+		{
+			"name": "bowrun1_png",
+			"type": "image",
+			"url": "assets/bowrun/bowrun1.png"
+		},
+		{
+			"name": "bowrun2_png",
+			"type": "image",
+			"url": "assets/bowrun/bowrun2.png"
+		},
+		{
+			"name": "bowrun3_png",
+			"type": "image",
+			"url": "assets/bowrun/bowrun3.png"
+		},
+		{
+			"name": "bowrun4_png",
+			"type": "image",
+			"url": "assets/bowrun/bowrun4.png"
+		},
+		{
+			"name": "bowrun5_png",
+			"type": "image",
+			"url": "assets/bowrun/bowrun5.png"
+		},
+		{
+			"name": "bowrun6_png",
+			"type": "image",
+			"url": "assets/bowrun/bowrun6.png"
+		},
+		{
+			"name": "bowrun7_png",
+			"type": "image",
+			"url": "assets/bowrun/bowrun7.png"
+		},
+		{
+			"name": "bowrun8_png",
+			"type": "image",
+			"url": "assets/bowrun/bowrun8.png"
+		},
+		{
+			"name": "boweffect_png",
+			"type": "image",
+			"url": "assets/boweffect.png"
+		},
+		{
+			"name": "energy_png",
+			"type": "image",
+			"url": "assets/energy.png"
+		},
+		{
+			"name": "energyBottle_png",
+			"type": "image",
+			"url": "assets/energyBottle.png"
+		}
+	]
 }

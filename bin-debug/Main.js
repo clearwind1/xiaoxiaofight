@@ -48,7 +48,7 @@ var Main = (function (_super) {
     }
     Main.prototype.onAddToStage = function (event) {
         document.title = GameConfig.GAMENAME;
-        this.stage.scaleMode = egret.StageScaleMode.SHOW_ALL;
+        this.stage.scaleMode = egret.StageScaleMode.FIXED_NARROW;
         this.stage.setContentSize(GameConfig.DesignWidth, GameConfig.DesignHeight);
         GameUtil.GameScene.init(this.stage);
         //加载资源
@@ -60,8 +60,9 @@ var Main = (function (_super) {
      */
     Main.prototype.createGameScene = function () {
         GameUtil.Http.getinstance();
-        GameUtil.GameScene.runscene(new StartGameScene());
+        GameUtil.GameScene.runscene(new StartGameScene(), SceneEffect.TransAlpha);
     };
     return Main;
 }(egret.DisplayObjectContainer));
 __reflect(Main.prototype, "Main");
+//# sourceMappingURL=Main.js.map

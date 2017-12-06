@@ -48,7 +48,7 @@ var StartGameScene = (function (_super) {
         gametitletext.italic = true;
         gametitletext.textColor = 0x75bfea;
         this.addChild(gametitletext);
-        this.addChild(new GameMenus(DisType.LeftTRight));
+        this.addChild(new GameMenus(RandomUtils.limitInteger(DisType.NULL, DisType.Alpha)));
     };
     /**开始游戏 */
     StartGameScene.prototype.startgame = function () {
@@ -77,3 +77,4 @@ var StartGameScene = (function (_super) {
     return StartGameScene;
 }(GameUtil.BassPanel));
 __reflect(StartGameScene.prototype, "StartGameScene");
+//# sourceMappingURL=StartGameScene.js.map

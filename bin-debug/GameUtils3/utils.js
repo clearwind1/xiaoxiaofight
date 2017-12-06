@@ -71,6 +71,10 @@ var GameUtil;
         return /^[\u4e00-\u9fa5]+$/.test(name);
     }
     GameUtil.isChineseName = isChineseName;
+    function isNumberChineseName(name) {
+        return /^[0-9a-zA-Z\u4e00-\u9fa5]+$/.test(name);
+    }
+    GameUtil.isNumberChineseName = isNumberChineseName;
     function removeimag(name) {
         name = name.replace(/^/, '');
         return name;
@@ -331,3 +335,4 @@ var GameUtil;
     }
     GameUtil.setInterval = setInterval;
 })(GameUtil || (GameUtil = {}));
+//# sourceMappingURL=utils.js.map
