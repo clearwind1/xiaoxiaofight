@@ -3,7 +3,7 @@
  */
 
 class DiamodFightScene extends GameUtil.BassPanel {
-    private offX: number = (this.mStageW - 700) / 2;
+    private offX: number = (this.mStageW - 600) / 2;
     private offY: number = 200 + this.mStageH / 4;
     private MaxRow: number = 7;              //宝石列数
     private MaxCol: number = 7;              //宝石行数

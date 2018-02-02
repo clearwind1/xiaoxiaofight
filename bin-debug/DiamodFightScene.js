@@ -18,7 +18,7 @@ var DiamodFightScene = (function (_super) {
     __extends(DiamodFightScene, _super);
     function DiamodFightScene() {
         var _this = _super.call(this) || this;
-        _this.offX = (_this.mStageW - 700) / 2;
+        _this.offX = (_this.mStageW - 600) / 2;
         _this.offY = 200 + _this.mStageH / 4;
         _this.MaxRow = 7; //宝石列数
         _this.MaxCol = 7; //宝石行数

@@ -9,7 +9,7 @@ class StartGameScene extends GameUtil.BassPanel {
     }
  
     public init() {
-        BGMPlayer._i().play(SoundName.startgamebgm);
+        //BGMPlayer._i().play(SoundName.startgamebgm);
         var data: any = {
             'code': 1
         };
@@ -42,7 +42,15 @@ class StartGameScene extends GameUtil.BassPanel {
         gametitletext.textColor = 0x75bfea;
         this.addChild(gametitletext);
 
-        this.addChild(new GameMenus(RandomUtils.limitInteger(DisType.NULL, DisType.Alpha)));
+        //this.addChild(new GameMenus(RandomUtils.limitInteger(DisType.NULL, DisType.Alpha)));
+
+        var btnname = 'enemyrun1'+1+'_png';
+        var fun = this.startgame;
+        var btn = new GameUtil.Menu(this, btnname, btnname, fun,[]);
+        btn.setScaleMode();
+        this.addChild(btn);
+        btn.x = posx;
+        btn.y = posy;
     }
 
     /**开始游戏 */

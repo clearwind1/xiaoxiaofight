@@ -22,13 +22,8 @@ class EnemySprite extends GameUtil.BassPanel {
     public init() {
         //console.log('type====', this.type);
         this.intervalarr = [];
-        this.gamelevel = 1;
+        this.gamelevel = GameData._i().GameLevel;
         this.power = 1;
-        if (this.gamelevel == 8) {
-            if (RandomUtils.limitInteger(0, 100) < 50) {
-                this.gamelevel = RandomUtils.limitInteger(1, 7);
-            }
-        }
         this.bdie = false;
         /**创建角色 */
         this.anispeed = Math.max(30, 80 - GameData._i().GameLevel);
