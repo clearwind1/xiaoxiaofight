@@ -12,11 +12,13 @@ module GameUtil
     {
         private loadedfun: Function;
         private thisObj: any;
+        private groupName: string;
 
-        public constructor(fun:Function,obj:any)
+        public constructor(fun:Function,obj:any,groupName:string='preloading')
         {
             this.loadedfun = fun;
             this.thisObj = obj;
+            this.groupName = groupName;
             this.loadingRes();
         }
 
@@ -37,7 +39,7 @@ module GameUtil
             RES.addEventListener(RES.ResourceEvent.GROUP_COMPLETE, this.onResourceLoadComplete, this);
             RES.addEventListener(RES.ResourceEvent.GROUP_LOAD_ERROR, this.onResourceLoadError, this);
             RES.addEventListener(RES.ResourceEvent.GROUP_PROGRESS, this.onResourceProgress, this);
-            RES.loadGroup("preloading");
+            RES.loadGroup(this.groupName);
         }
 
         /**
@@ -45,11 +47,11 @@ module GameUtil
          * Preload resource group is loaded
          */
         private onResourceLoadComplete(event:RES.ResourceEvent):void {
-            if (event.groupName == "preloading") {
+            if (event.groupName == this.groupName) {
                 RES.removeEventListener(RES.ResourceEvent.GROUP_COMPLETE, this.onResourceLoadComplete, this);
                 RES.removeEventListener(RES.ResourceEvent.GROUP_LOAD_ERROR, this.onResourceLoadError, this);
                 RES.removeEventListener(RES.ResourceEvent.GROUP_PROGRESS, this.onResourceProgress, this);
-
+                
                 this.loadedfun.apply(this.thisObj);
             }
         }
@@ -71,7 +73,7 @@ module GameUtil
          * Loading process of preload resource group
          */
         private onResourceProgress(event:RES.ResourceEvent):void {
-            if (event.groupName == "preloading") {
+            if (event.groupName == this.groupName) {
             }
         }
 

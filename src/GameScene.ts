@@ -15,7 +15,7 @@ class GameScene extends GameUtil.BassPanel {
         super();
     }
     public init() {
-        BGMPlayer._i().play(SoundName.gamebgm);     //背景音乐
+        //BGMPlayer._i().play(SoundName.gamebgm);     //背景音乐
         this.intervalarr = [];
         this.initdata();
         this.showbg();
@@ -30,7 +30,7 @@ class GameScene extends GameUtil.BassPanel {
     private initdata() {
         GameData._i().GameOver = false;
         GameData._i().GameScore = 0;
-        GameData._i().GameLevel = 1;
+        //GameData._i().GameLevel = 1;
     }
     /**
      * 显示背景

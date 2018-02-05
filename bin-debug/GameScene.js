@@ -23,7 +23,7 @@ var GameScene = (function (_super) {
         return _this;
     }
     GameScene.prototype.init = function () {
-        BGMPlayer._i().play(SoundName.gamebgm); //背景音乐
+        //BGMPlayer._i().play(SoundName.gamebgm);     //背景音乐
         this.intervalarr = [];
         this.initdata();
         this.showbg();
@@ -38,7 +38,7 @@ var GameScene = (function (_super) {
     GameScene.prototype.initdata = function () {
         GameData._i().GameOver = false;
         GameData._i().GameScore = 0;
-        GameData._i().GameLevel = 1;
+        //GameData._i().GameLevel = 1;
     };
     /**
      * 显示背景

@@ -3775,11 +3775,7 @@ var egret;
             }
             egret.sys.CanvasRenderBuffer = web.CanvasRenderBuffer;
             setRenderMode(options.renderMode);
-            var canvasScaleFactor;
-            if (options.canvasScaleFactor) {
-                canvasScaleFactor = options.canvasScaleFactor;
-            }
-            else {
+            if (options.retina) {
                 //based on : https://github.com/jondavidjohn/hidpi-canvas-polyfill
                 var context_1 = egret.sys.canvasHitTestBuffer.context;
                 var backingStore = context_1.backingStorePixelRatio ||
@@ -3788,14 +3784,8 @@ var egret;
                     context_1.msBackingStorePixelRatio ||
                     context_1.oBackingStorePixelRatio ||
                     context_1.backingStorePixelRatio || 1;
-                canvasScaleFactor = (window.devicePixelRatio || 1) / backingStore;
-                //特殊处理PC缩放2倍
-                if (canvasScaleFactor == 1 && (egret.Capabilities.os == "Mac OS" || egret.Capabilities.os == "Windows PC")) {
-                    canvasScaleFactor = 2;
-                }
+                egret.sys.DisplayList.$setDevicePixelRatio((window.devicePixelRatio || 1) / backingStore);
             }
-            canvasScaleFactor = Math.max(1, Math.ceil(canvasScaleFactor));
-            egret.sys.DisplayList.$setDevicePixelRatio(canvasScaleFactor);
             var ticker = egret.ticker;
             startTicker(ticker);
             if (options.screenAdapter) {
@@ -5372,25 +5362,19 @@ var egret;
                     var i = 0, iD = 0, l = 0;
                     var u = 0, v = 0, x = 0, y = 0;
                     for (i = 0, l = meshUVs.length; i < l; i += 2) {
-                        iD = index + i * 5 / 2;
+                        iD = i * 5 / 2;
                         x = meshVertices[i];
                         y = meshVertices[i + 1];
                         u = meshUVs[i];
                         v = meshUVs[i + 1];
                         // xy
-                        vertices[iD + 0] = a * x + c * y + tx;
-                        vertices[iD + 1] = b * x + d * y + ty;
+                        vertices[index + iD + 0] = a * x + c * y + tx;
+                        vertices[index + iD + 1] = b * x + d * y + ty;
                         // uv
-                        if (rotated) {
-                            vertices[iD + 2] = (sourceX + (1.0 - v) * sourceHeight) / textureSourceWidth;
-                            vertices[iD + 3] = (sourceY + u * sourceWidth) / textureSourceHeight;
-                        }
-                        else {
-                            vertices[iD + 2] = (sourceX + u * sourceWidth) / textureSourceWidth;
-                            vertices[iD + 3] = (sourceY + v * sourceHeight) / textureSourceHeight;
-                        }
+                        vertices[index + iD + 2] = (sourceX + u * sourceWidth) / textureSourceWidth;
+                        vertices[index + iD + 3] = (sourceY + v * sourceHeight) / textureSourceHeight;
                         // alpha
-                        vertices[iD + 4] = alpha;
+                        vertices[index + iD + 4] = alpha;
                     }
                     // 缓存索引数组
                     if (this.hasMesh) {
@@ -6037,7 +6021,7 @@ var egret;
             /**
              * 绘制Mesh
              */
-            WebGLRenderContext.prototype.drawMesh = function (image, sourceX, sourceY, sourceWidth, sourceHeight, destX, destY, destWidth, destHeight, imageSourceWidth, imageSourceHeight, meshUVs, meshVertices, meshIndices, bounds, rotated, smoothing) {
+            WebGLRenderContext.prototype.drawMesh = function (image, sourceX, sourceY, sourceWidth, sourceHeight, destX, destY, destWidth, destHeight, imageSourceWidth, imageSourceHeight, meshUVs, meshVertices, meshIndices, bounds, smoothing) {
                 var buffer = this.currentBuffer;
                 if (this.contextLost || !image || !buffer) {
                     return;
@@ -6058,7 +6042,7 @@ var egret;
                 if (!texture) {
                     return;
                 }
-                this.drawTexture(texture, sourceX, sourceY, sourceWidth, sourceHeight, destX, destY, destWidth, destHeight, imageSourceWidth, imageSourceHeight, meshUVs, meshVertices, meshIndices, bounds, rotated, smoothing);
+                this.drawTexture(texture, sourceX, sourceY, sourceWidth, sourceHeight, destX, destY, destWidth, destHeight, imageSourceWidth, imageSourceHeight, meshUVs, meshVertices, meshIndices, bounds, smoothing);
                 if (image["texture"] || (image.source && image.source["texture"])) {
                     buffer.restoreTransform();
                 }
@@ -7200,7 +7184,7 @@ var egret;
              */
             WebGLRenderer.prototype.drawWithFilter = function (displayObject, buffer, dirtyList, matrix, clipRegion, root) {
                 var drawCalls = 0;
-                if (displayObject.$children && displayObject.$children.length == 0 && (!displayObject.$renderNode || displayObject.$renderNode.$getRenderCount() == 0)) {
+                if (displayObject.$children && displayObject.$children.length == 0) {
                     return;
                 }
                 var filters = displayObject.$getFilters();
@@ -7211,10 +7195,6 @@ var egret;
                     if (!compositeOp) {
                         compositeOp = defaultCompositeOp;
                     }
-                }
-                var bounds = displayObject.$getOriginalBounds();
-                if (bounds.width <= 0 || bounds.height <= 0) {
-                    return drawCalls;
                 }
                 if (!displayObject.mask && filters.length == 1 && (filters[0].type == "colorTransform" || (filters[0].type === "custom" && filters[0].padding === 0))) {
                     var childrenDrawCount = this.getRenderCount(displayObject);
@@ -7245,6 +7225,7 @@ var egret;
                 // 获取显示对象的矩形区域
                 var region;
                 region = egret.sys.Region.create();
+                var bounds = displayObject.$getOriginalBounds();
                 region.updateRegion(bounds, displayMatrix);
                 // 为显示对象创建一个新的buffer
                 // todo 这里应该计算 region.x region.y
@@ -7375,9 +7356,6 @@ var egret;
                     region = egret.sys.Region.create();
                     bounds = displayObject.$getOriginalBounds();
                     region.updateRegion(bounds, displayMatrix);
-                }
-                if (region.width <= 0 || region.height <= 0) {
-                    return drawCalls;
                 }
                 var found = false;
                 if (!dirtyList) {
@@ -7728,13 +7706,13 @@ var egret;
                 if (node.filter) {
                     buffer.context.$filter = node.filter;
                     while (pos < length) {
-                        buffer.context.drawMesh(image, data[pos++], data[pos++], data[pos++], data[pos++], data[pos++], data[pos++], data[pos++], data[pos++], node.imageWidth, node.imageHeight, node.uvs, node.vertices, node.indices, node.bounds, node.rotated, node.smoothing);
+                        buffer.context.drawMesh(image, data[pos++], data[pos++], data[pos++], data[pos++], data[pos++], data[pos++], data[pos++], data[pos++], node.imageWidth, node.imageHeight, node.uvs, node.vertices, node.indices, node.bounds, node.smoothing);
                     }
                     buffer.context.$filter = null;
                 }
                 else {
                     while (pos < length) {
-                        buffer.context.drawMesh(image, data[pos++], data[pos++], data[pos++], data[pos++], data[pos++], data[pos++], data[pos++], data[pos++], node.imageWidth, node.imageHeight, node.uvs, node.vertices, node.indices, node.bounds, node.rotated, node.smoothing);
+                        buffer.context.drawMesh(image, data[pos++], data[pos++], data[pos++], data[pos++], data[pos++], data[pos++], data[pos++], data[pos++], node.imageWidth, node.imageHeight, node.uvs, node.vertices, node.indices, node.bounds, node.smoothing);
                     }
                 }
                 if (blendMode) {

@@ -8,9 +8,9 @@
 	],
 	"game": [
 		"bin-debug/GameUtils3/BassPanel.js",
+		"bin-debug/GameUtils3/MyBitmap.js",
 		"bin-debug/GameUtils3/MyTextField.js",
 		"bin-debug/Othercontainer.js",
-		"bin-debug/GameUtils3/MyBitmap.js",
 		"bin-debug/GameUtils3/GetResByany.js",
 		"bin-debug/GameData.js",
 		"bin-debug/GameHelpPageShow.js",

@@ -26,7 +26,7 @@ var GameUtil;
             if (offx === void 0) { offx = 0; }
             if (offy === void 0) { offy = 0; }
             if (isgif === void 0) { isgif = false; }
-            if (gifTotal === void 0) { gifTotal = 4; }
+            if (gifTotal === void 0) { gifTotal = 8; }
             var _this = _super.call(this) || this;
             _this.loadedfun = fun;
             _this.thisObj = obj;
@@ -39,8 +39,6 @@ var GameUtil;
         LoadingPanel.prototype.init = function () {
             //RES.getResByUrl(this.imageUrl,this.onComplete,this,RES.ResourceItem.TYPE_IMAGE);
             new GameUtil.LoadingLogopre(this.onComplete, this);
-            if (GameConfig.IsLoadSound)
-                this.loadsound();
         };
         LoadingPanel.prototype.loadsound = function () {
             for (var i = 0; i < GameConfig.SoundName.length; i++) {
@@ -51,7 +49,6 @@ var GameUtil;
             }
         };
         LoadingPanel.prototype.onComplete = function (event) {
-            //console.log("onComplete");
             if (this.IsGif) {
                 this.gifruncount = 0;
                 this.loadingbar = new MyBitmap(RES.getRes("loadinggif0_png"), this.mStageW / 2 + this.loadingbarOffX, this.mStageH / 2 + this.loadingbarOffY);
@@ -59,37 +56,57 @@ var GameUtil;
                 egret.setInterval(this.rungif, this, 150);
             }
             else {
+                // var loadbgpic = new MyBitmap(RES.getRes('loadbg_jpg'), 0, 0);
+                // loadbgpic.setanchorOff(0, 0);
+                // this.addChild(loadbgpic);
+                var loadingbgbar = new MyBitmap(RES.getRes('loadingbarbg_png'), this.loadingbarOffX, this.mStageH / 2 + this.loadingbarOffY);
+                loadingbgbar.x = (this.mStageW - loadingbgbar.texture.textureWidth) / 2;
+                loadingbgbar.anchorOffsetX = 0;
+                this.addChild(loadingbgbar);
                 this.loadingbar = new MyBitmap(RES.getRes("loadingbar_png"), this.loadingbarOffX, this.mStageH / 2 + this.loadingbarOffY);
                 this.loadingbar.x = (this.mStageW - this.loadingbar.texture.textureWidth) / 2;
                 this.loadingbar.anchorOffsetX = 0;
-                var w = this.loadingbar.texture.textureWidth - 8;
-                var h = this.loadingbar.texture.textureHeight - 8;
-                var rect = new egret.Rectangle(4, 4, w, h);
-                this.loadingbar.scale9Grid = rect;
                 this.addChild(this.loadingbar);
-                this.loadingbar.width = 10;
+                this.loadingmask = GameUtil.createRect(this.loadingbar.x - this.loadingbar.width, this.loadingbar.y - this.loadingbar.height / 2, this.loadingbar.width, this.loadingbar.height);
+                this.addChild(this.loadingmask);
+                this.loadingbar.mask = this.loadingmask;
+                this.gifruncount = 0;
+                this.gifloadingbar = new MyBitmap(RES.getRes("gifloadingbar1_png"), this.loadingbar.x, this.loadingbar.y - 100);
+                this.addChild(this.gifloadingbar);
+                egret.setInterval(this.rungif, this, 150);
+                var logo = new MyBitmap(RES.getRes('logo_png'), this.mStageW / 2, this.loadingbar.y + 100);
+                this.addChild(logo);
+                logo.alpha = 0;
+                egret.Tween.get(logo).to({ alpha: 1 }, 500);
+                var gametitletext = new GameUtil.MyTextField(this.mStageW / 2, 200, 100, 0.5, 0.5);
+                gametitletext.setText(GameConfig.GAMENAME);
+                gametitletext.italic = true;
+                gametitletext.textColor = 0x75bfea;
+                this.addChild(gametitletext);
             }
+            //Config to load process interface
+            this.loadingView = new LoadingUI();
+            this.loadingView.x = this.mStageW / 2;
+            this.loadingView.y = this.loadingbar.y - 10;
+            this.addChild(this.loadingView);
+            this.loadingView.anchorOffsetX = this.loadingView.width / 2;
             this.loadingRes();
         };
         LoadingPanel.prototype.rungif = function () {
             this.gifruncount++;
             if (this.gifruncount >= this.gifTotalcount) {
-                this.gifruncount = 0;
+                this.gifruncount = 1;
             }
-            this.loadingbar.setNewTexture(RES.getRes("loadinggif" + this.gifruncount + "_png"));
+            this.gifloadingbar.setNewTexture(RES.getRes("gifloadingbar" + this.gifruncount + "_png"));
         };
         LoadingPanel.prototype.loadingRes = function () {
             //设置加载进度界面
-            //Config to load process interface
-            this.loadingView = new LoadingUI();
-            this.loadingView.x = this.mStageW / 2;
-            this.loadingView.y = this.mStageH / 2 + this.loadingbarOffY + 30;
-            this.addChild(this.loadingView);
-            this.loadingView.anchorOffsetX = this.loadingView.width / 2;
             //初始化Resource资源加载库
             //initiate Resource loading library
             RES.addEventListener(RES.ResourceEvent.CONFIG_COMPLETE, this.onConfigComplete, this);
             RES.loadConfig("resource/default.res.json", "resource/");
+            if (GameConfig.IsLoadSound)
+                this.loadsound();
         };
         /**
          * 配置文件加载完成,开始预加载preload资源组。
@@ -111,10 +128,7 @@ var GameUtil;
                 RES.removeEventListener(RES.ResourceEvent.GROUP_COMPLETE, this.onResourceLoadComplete, this);
                 RES.removeEventListener(RES.ResourceEvent.GROUP_LOAD_ERROR, this.onResourceLoadError, this);
                 RES.removeEventListener(RES.ResourceEvent.GROUP_PROGRESS, this.onResourceProgress, this);
-                //if(GameUtil.GameConfig.bRunFPS)
-                //    egret.Profiler.run();
                 this.loadedfun.apply(this.thisObj);
-                //this.parent.removeChild(this);
             }
         };
         /**
@@ -141,7 +155,9 @@ var GameUtil;
             }
         };
         LoadingPanel.prototype.setPro = function (persend) {
-            this.loadingbar.width = this.loadingbar.texture.textureWidth * persend;
+            var dis = this.loadingbar.texture.textureWidth * persend;
+            this.loadingmask.x = this.loadingbar.x - this.loadingbar.width + dis;
+            this.gifloadingbar.x = this.loadingbar.x + dis;
             //console.log("this.width=====",this.width);
         };
         LoadingPanel.prototype.getPro = function () {

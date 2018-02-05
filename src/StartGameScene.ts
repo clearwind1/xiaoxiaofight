@@ -7,7 +7,7 @@ class StartGameScene extends GameUtil.BassPanel {
     public constructor() {
         super();
     }
- 
+
     public init() {
         //BGMPlayer._i().play(SoundName.startgamebgm);
         var data: any = {
@@ -36,26 +36,23 @@ class StartGameScene extends GameUtil.BassPanel {
         var posx = this.mStageW / 2;
         var posy = this.mStageH / 2;
 
-        var gametitletext = new GameUtil.MyTextField(posx, 200, 100, 0.5, 0.5);
-        gametitletext.setText(GameConfig.GAMENAME);
-        gametitletext.italic = true;
-        gametitletext.textColor = 0x75bfea;
-        this.addChild(gametitletext);
-
         //this.addChild(new GameMenus(RandomUtils.limitInteger(DisType.NULL, DisType.Alpha)));
 
-        var btnname = 'enemyrun1'+1+'_png';
-        var fun = this.startgame;
-        var btn = new GameUtil.Menu(this, btnname, btnname, fun,[]);
-        btn.setScaleMode();
-        this.addChild(btn);
-        btn.x = posx;
-        btn.y = posy;
+        for (let i: number = 0; i < 2; i++) {
+            var btnname = 'enemyrun' + (i+1) + '1_png';
+            var fun = this.startgame;
+            var btn = new GameUtil.Menu(this, btnname, btnname, fun, [i]);
+            this.addChild(btn);
+            btn.x = posx;
+            btn.y = posy + 200 - i*400;
+        }
+
     }
 
     /**开始游戏 */
-    private startgame() {
-        GameUtil.trace('startgame');
+    private startgame(id) {
+        GameUtil.trace('startgame====', id);
+        GameData._i().GameLevel = id + 1;
         GameUtil.GameScene.runscene(new GameScene());
     }
     /**游戏排行榜 */

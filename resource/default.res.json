@@ -1,7 +1,7 @@
 {
 	"groups": [
 		{
-			"keys": "loadingbar_png",
+			"keys": "loadingbar_png,loadingbarbg_png,gifloadingbar1_png,gifloadingbar2_png,gifloadingbar3_png,gifloadingbar4_png,gifloadingbar5_png,gifloadingbar6_png,gifloadingbar7_png,gifloadingbar8_png",
 			"name": "preloading"
 		},
 		{
@@ -969,6 +969,51 @@
 			"name": "energyBottle_png",
 			"type": "image",
 			"url": "assets/energyBottle.png"
+		},
+		{
+			"name": "loadingbarbg_png",
+			"type": "image",
+			"url": "assets/loadingbarbg.png"
+		},
+		{
+			"name": "gifloadingbar1_png",
+			"type": "image",
+			"url": "assets/loadgif/gifloadingbar1.png"
+		},
+		{
+			"name": "gifloadingbar2_png",
+			"type": "image",
+			"url": "assets/loadgif/gifloadingbar2.png"
+		},
+		{
+			"name": "gifloadingbar3_png",
+			"type": "image",
+			"url": "assets/loadgif/gifloadingbar3.png"
+		},
+		{
+			"name": "gifloadingbar4_png",
+			"type": "image",
+			"url": "assets/loadgif/gifloadingbar4.png"
+		},
+		{
+			"name": "gifloadingbar5_png",
+			"type": "image",
+			"url": "assets/loadgif/gifloadingbar5.png"
+		},
+		{
+			"name": "gifloadingbar6_png",
+			"type": "image",
+			"url": "assets/loadgif/gifloadingbar6.png"
+		},
+		{
+			"name": "gifloadingbar7_png",
+			"type": "image",
+			"url": "assets/loadgif/gifloadingbar7.png"
+		},
+		{
+			"name": "gifloadingbar8_png",
+			"type": "image",
+			"url": "assets/loadgif/gifloadingbar8.png"
 		}
 	]
 }

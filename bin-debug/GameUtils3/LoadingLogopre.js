@@ -11,9 +11,11 @@ var GameUtil;
      * Process interface loading
      */
     var LoadingLogopre = (function () {
-        function LoadingLogopre(fun, obj) {
+        function LoadingLogopre(fun, obj, groupName) {
+            if (groupName === void 0) { groupName = 'preloading'; }
             this.loadedfun = fun;
             this.thisObj = obj;
+            this.groupName = groupName;
             this.loadingRes();
         }
         LoadingLogopre.prototype.loadingRes = function () {
@@ -31,14 +33,14 @@ var GameUtil;
             RES.addEventListener(RES.ResourceEvent.GROUP_COMPLETE, this.onResourceLoadComplete, this);
             RES.addEventListener(RES.ResourceEvent.GROUP_LOAD_ERROR, this.onResourceLoadError, this);
             RES.addEventListener(RES.ResourceEvent.GROUP_PROGRESS, this.onResourceProgress, this);
-            RES.loadGroup("preloading");
+            RES.loadGroup(this.groupName);
         };
         /**
          * preload资源组加载完成
          * Preload resource group is loaded
          */
         LoadingLogopre.prototype.onResourceLoadComplete = function (event) {
-            if (event.groupName == "preloading") {
+            if (event.groupName == this.groupName) {
                 RES.removeEventListener(RES.ResourceEvent.GROUP_COMPLETE, this.onResourceLoadComplete, this);
                 RES.removeEventListener(RES.ResourceEvent.GROUP_LOAD_ERROR, this.onResourceLoadError, this);
                 RES.removeEventListener(RES.ResourceEvent.GROUP_PROGRESS, this.onResourceProgress, this);
@@ -61,7 +63,7 @@ var GameUtil;
          * Loading process of preload resource group
          */
         LoadingLogopre.prototype.onResourceProgress = function (event) {
-            if (event.groupName == "preloading") {
+            if (event.groupName == this.groupName) {
             }
         };
         return LoadingLogopre;
